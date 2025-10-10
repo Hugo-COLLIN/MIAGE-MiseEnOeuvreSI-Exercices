@@ -1,4 +1,4 @@
-package com.example.apispring;
+package com.example.ecomapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
