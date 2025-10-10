@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+	crossorigin="anonymous">
+
+<title>ECommerce Web Application</title>
+
+<style>
+body {
+	padding-top: 30px;
+}
+
+.special {
+	padding-top: 30px;
+}
+</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href=".">Système de gestion des
+					clients</a>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container special">
+
+		<h2 class="h2">Ajout d'un nouvel client</h2>
+		<div>
+			<form method="post"
+				th:action="@{/saveClient}" th:object="${client}">
+				<div class="form-group">
+					<label for="firstNameInput">Prénom</label> 
+					<input
+						type="text" th:field="*{firstName}" class="form-control" id="firstNameInput"
+						placeholder="Saisir le prénom"> <small
+						id="firstNameHelp" class="form-text text-muted">Merci d'écrire le prénom du client.</small>
+				</div>
+				<div class="form-group">
+					<label for="lastNameInput">Prénom</label> 
+					<input
+						type="text" th:field="*{lastName}" class="form-control" id=""lastNameInput""
+						placeholder="Saisir le prénom"> <small
+						id="lastNameHelp" class="form-text text-muted">Merci d'écrire le nom du client.</small>
+				</div>
+				<div class="form-group">
+					<label for="mailInput">Email</label> 
+					<input
+						type="text" th:field="*{mail}" class="form-control" id="mailInput"
+						placeholder="Saisir l'adresse email"> <small
+						id="mailHelp" class="form-text text-muted">Merci d'écrire l'adresse email du client.</small>
+				</div>
+				<div class="form-group">
+					<label for="passwordInput">Mot de passe</label> 
+					<input
+						type="password" th:field="*{password}" class="form-control" id="passwordInput"
+						placeholder="Mot de passe">
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Créer</button>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>

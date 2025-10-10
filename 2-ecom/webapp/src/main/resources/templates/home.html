@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+	crossorigin="anonymous">
+
+<title>ECommerce Web Application</title>
+
+<style>
+	body {
+		padding-top: 30px;
+	}
+	.special {
+		padding-top:30px;
+	}
+</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href=".">Système de gestion des clients</a>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container special">
+		<h2 class="h2">Liste des clients</h2>
+		<div class="table-responsive">
+			<table class="table table-striped table-sm">
+				<thead>
+					<tr>
+						<th>Prénom</th>
+						<th>Nom</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${clients.empty}">
+						<td colspan="3">Aucun client en base de données</td>
+					</tr>
+					<tr th:each="client: ${clients}">
+						<td><span th:text="${client.firstName}"> Prénom </span></td>
+						<td><span th:text="${client.lastName}"> Nom </span></td>
+						<td>
+							<a th:href="@{/updateClient/{id}(id=${client.id})}"><button class="btn btn-info">Modifier</button></a>
+							<a th:href="@{/deleteClient/{id}(id=${client.id})}"><button class="btn btn-danger">Supprimer</button></a>						
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h4><a th:href="@{/createClient}">Ajouter un nouveau client</a></h4>
+
+	</div>
+</body>
+</html>
